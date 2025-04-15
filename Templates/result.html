@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Failure Probability Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .plot {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 48%;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .result-container {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Probability of Motor Failure:</h1>
+        <p><strong>{{ failure_prob | round(4) }}</strong></p>
+    </div>
+
+    <div class="container">
+        <div class="plot">
+            <h2>Bayesian Network Visualization</h2>
+            <img src="{{ image_url }}" alt="Bayesian Network">
+        </div>
+
+        <div class="plot">
+            <h2>Remaining Useful Life (RUL) Prediction</h2>
+            <img src="{{ rul_graph }}" alt="RUL Plot">
+        </div>
+        <div class="plot">
+            <h2>Machine Availability</h2>
+            <img src="{{ gauge_plot }}" alt="Availability Plot">
+        </div>
+    </div>
+    <p><strong>Next Maintenance required:</strong> {{ MTTF }} hours</p>
+    <a href="/">Back to Home</a>
+</body>
+</html>
